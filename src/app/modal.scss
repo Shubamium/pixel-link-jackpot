@@ -1,6 +1,9 @@
 #rewards {
+  position: relative;
+  z-index: 1000;
   .modal-container {
     position: fixed;
+    z-index: 1000;
     left: 0%;
     top: 0%;
     height: 100vh;
