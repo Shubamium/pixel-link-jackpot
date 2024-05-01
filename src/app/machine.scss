@@ -87,7 +87,7 @@
           position: relative;
           bottom: 2100%;
           // top: 10%;
-          transition: all 5s cubic-bezier(0.68, -0.1, 0.32, 1.1);
+          transition: all 2s cubic-bezier(0.68, -0.1, 0.32, 1.1);
           &.show {
             transition: all 4s cubic-bezier(0.68, 0, 0.32, 1);
             bottom: 0%;
@@ -135,17 +135,17 @@
         &:nth-of-type(3) {
           // background: red;
           .strip {
-            transition-delay: 2000ms;
+            transition-delay: 0ms;
             &.show {
-              transition-delay: 0;
+              transition-delay: 2000ms;
             }
           }
         }
         &:nth-of-type(2) {
           .strip {
-            transition-delay: 1000ms;
+            transition-delay: 0ms;
             &.show {
-              transition-delay: 0;
+              transition-delay: 1000ms;
             }
           }
         }

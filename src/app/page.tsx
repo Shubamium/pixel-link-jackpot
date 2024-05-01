@@ -170,10 +170,13 @@ export default function Home() {
   };
   const reset = () => {
     if (whileAnim) return;
-    audioPull();
+    // audioPull();
+    playAudio({
+      src: "/audio/pull.wav",
+    }).play();
     setWhileAnim(true);
     setCanPull(false);
-    const resetDuration = 6000;
+    const resetDuration = 2400;
     setSlotDisplay([false, false, false]);
 
     setTimeout(() => {
