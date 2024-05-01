@@ -107,6 +107,22 @@
       text-shadow: 0px 0px 14px white;
       margin: 0.2em 0;
       letter-spacing: 2vw;
+      .btn-out {
+        font-size: 1vw;
+        letter-spacing: 1vw;
+        display: block;
+        background: white;
+        color: #1b1b1b;
+        width: max-content;
+        padding: 0.25em 1em;
+        margin: 0 auto;
+        cursor: pointer;
+        // translate: ;
+        transition: all 450ms ease;
+        &:hover {
+          scale: 1.1;
+        }
+      }
     }
     .details {
       margin: 1em;
