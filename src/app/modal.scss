@@ -148,3 +148,18 @@
     rotate: 360deg;
   }
 }
+
+@media screen and (max-width: 420px) {
+  #rewards .modal-container:has(.card-container).visible .card {
+    scale: 1.1 !important;
+  }
+  #rewards {
+    .modal-container {
+      .card-container {
+        .card {
+          scale: 1;
+        }
+      }
+    }
+  }
+}

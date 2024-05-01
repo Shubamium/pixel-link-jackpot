@@ -21,7 +21,7 @@ const slotList = [
   {
     icon: "/graphics/si-card.png",
     winText: "You Win!",
-    card: "",
+    card: "/graphics/c_card.png",
     onWin: () => {},
   },
   {
@@ -133,7 +133,7 @@ export default function Home() {
         playAudio({
           src: "/audio/win.wav",
           destroy: 5,
-          volume: 0.8,
+          volume: 0.6,
         }).play(0.4);
         // Message Card
         if (prize !== slotList.length - 1) {
@@ -142,7 +142,7 @@ export default function Home() {
             playAudio({
               src: "/audio/card.wav",
               destroy: 5,
-              volume: 0.8,
+              volume: 1,
             }).play(0.4);
             setActiveMessageCard(reward.card ?? "");
           }, 1000);
