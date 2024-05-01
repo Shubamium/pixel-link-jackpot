@@ -6,7 +6,7 @@ import { CSSProperties } from "react";
 const lora = Lora({ subsets: ["latin"] });
 const archivo = Archivo_Narrow({ subsets: ["latin"] });
 
-export const meta = {
+const meta = {
   title: "PixelLink JACKPOT",
   description: "Try you luck at the PixelLink JACKPOT and win some prizes",
 };
