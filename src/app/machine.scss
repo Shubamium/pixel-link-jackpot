@@ -33,6 +33,24 @@
         margin: 0 1em;
 
         border-radius: 1em;
+
+        &.glow {
+          p {
+            animation: flicker 0.5s infinite ease;
+          }
+        }
+
+        @keyframes flicker {
+          0% {
+            opacity: 0.5;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0.5;
+          }
+        }
       }
     }
     .slots {
@@ -68,9 +86,9 @@
           position: relative;
           bottom: 2100%;
           // top: 10%;
-          transition: all 4s cubic-bezier(0.68, 0, 0.32, 1);
+          transition: all 5s cubic-bezier(0.68, -0.1, 0.32, 1.1);
           &.show {
-            transition: all 6s cubic-bezier(0.68, -0.1, 0.32, 1.2);
+            transition: all 4s cubic-bezier(0.68, 0, 0.32, 1);
             bottom: 0%;
           }
         }
@@ -112,11 +130,23 @@
             opacity: 0;
           }
         }
-      }
 
-      &:nth-of-type(5) {
-        .strip {
-          transition-delay: 400ms;
+        &:nth-of-type(3) {
+          // background: red;
+          .strip {
+            transition-delay: 1500ms;
+            &.show {
+              transition-delay: 1500ms;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          .strip {
+            transition-delay: 1000ms;
+            &.show {
+              transition-delay: 1000ms;
+            }
+          }
         }
       }
     }
