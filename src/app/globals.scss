@@ -44,3 +44,24 @@ main {
     background-position: 0 1000px;
   }
 }
+
+@media screen and (orientation: portrait) {
+  .dd {
+    display: none;
+  }
+}
+.spin {
+  animation: speen 5s infinite linear;
+  transition: all 500ms ease;
+}
+.spin-r {
+  animation: speen 5s infinite linear reverse;
+}
+@keyframes speen {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}

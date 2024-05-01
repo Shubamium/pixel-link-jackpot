@@ -201,6 +201,18 @@ export default function Home() {
             <Slot prize={activeSlotIcons[1]} show={slotDisplay[1]}></Slot>
             <Slot prize={activeSlotIcons[2]} show={slotDisplay[2]}></Slot>
           </div>
+
+          <div
+            className={`slot-lever dd ${whileAnim ? "pulled" : ""}`}
+            onClick={() => {
+              canPull && pull();
+              !canPull && reset();
+            }}
+          >
+            <img src="/decors/bearing.png" alt="" className="bearing" />
+            <img src="/decors/track.png" alt="" className="bearing track" />
+            <img src="/decors/lever.png" alt="" className="lever " />
+          </div>
           <div className="bottom-part">
             <p>
               {" "}
@@ -210,9 +222,40 @@ export default function Home() {
               </a>
             </p>
           </div>
+
+          <img
+            src="/decors/gear-m.png"
+            alt=""
+            className={`dd decor_gear l ${whileAnim ? "spin" : ""}`}
+          />
+          <img
+            src="/decors/clock-decor.png"
+            alt=""
+            className={`dd decor_gclock spin`}
+          />
+          <img
+            src="/decors/gear-u.png"
+            alt=""
+            className={`dd decor_gear r u ${whileAnim ? "spin" : ""}`}
+          />
+          <img
+            src="/decors/gear-u.png"
+            alt=""
+            className={`dd decor_gear l u ${whileAnim ? "spin" : ""}`}
+          />
+
+          <img
+            src="/decors/gear-m.png"
+            alt=""
+            className={`dd decor_gear r ${whileAnim ? "spin-r" : ""}  `}
+          />
         </div>
       </section>
 
+      <section className="side-decors">
+        <img src="/decors/gear-l.png" alt="" className="decor-side l spin" />
+        <img src="/decors/gear-l.png" alt="" className="decor-side r spin" />
+      </section>
       <section className="slot-action">
         {canPull ? (
           <button
@@ -242,6 +285,11 @@ export default function Home() {
           isVisible={showCardModal}
           onClose={() => {
             setShowCardModal(false);
+            playAudio({
+              src: "/audio/card.wav",
+              destroy: 5,
+              volume: 1,
+            }).play(0.2);
           }}
         />
         <TimerModal
@@ -251,6 +299,9 @@ export default function Home() {
           }}
         />
       </section>
+
+      <div className="dd">{/* Hidden everything on mobile */}</div>
+      <div className="decor-mobile"></div>
     </main>
   );
 }
