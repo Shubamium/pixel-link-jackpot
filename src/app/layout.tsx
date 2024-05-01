@@ -8,7 +8,7 @@ const archivo = Archivo_Narrow({ subsets: ["latin"] });
 
 const meta = {
   title: "PixelLink JACKPOT",
-  description: "Try you luck at the PixelLink JACKPOT and win some prizes",
+  description: "Try your luck at the PixelLink JACKPOT and win some prizes!",
 };
 
 const title = meta.title;

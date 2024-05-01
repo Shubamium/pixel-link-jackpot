@@ -486,7 +486,7 @@ function TimerModal({ onClose, isVisible }: ModalProps) {
       <img src="/decors/clock-decor.png" alt="" className="decor-clock" />
       <div className="timer-modal">
         <p className="time">
-          {!difference > 0 ? (
+          {difference > 0 ? (
             <>
               <span>-{diff.get("days")}D:</span>
               <span>{diff.get("hours")}H:</span>
