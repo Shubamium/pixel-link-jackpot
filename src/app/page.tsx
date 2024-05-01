@@ -469,7 +469,7 @@ function TimerModal({ onClose, isVisible }: ModalProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const targetDate = dayjs.tz("2024-05-11 12:00:00", "America/Los_Angeles");
+      const targetDate = dayjs.tz("2024-05-11T12:00:00", "America/Los_Angeles");
       const localTimezone = dayjs().tz(dayjs.tz.guess());
       setDifference(targetDate.diff(localTimezone, "second"));
     }, 1000);
