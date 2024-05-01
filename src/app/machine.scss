@@ -134,9 +134,9 @@
         &:nth-of-type(3) {
           // background: red;
           .strip {
-            transition-delay: 1500ms;
+            transition-delay: 2000ms;
             &.show {
-              transition-delay: 1500ms;
+              transition-delay: 0;
             }
           }
         }
@@ -144,7 +144,7 @@
           .strip {
             transition-delay: 1000ms;
             &.show {
-              transition-delay: 1000ms;
+              transition-delay: 0;
             }
           }
         }

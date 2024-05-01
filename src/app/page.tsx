@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import duration from "dayjs/plugin/duration";
+import playAudio from "./library/audioplayer";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(duration);
@@ -47,7 +48,7 @@ const slotList = [
 export default function Home() {
   const [canPull, setCanPull] = useState(true);
   const [whileAnim, setWhileAnim] = useState(false);
-  const [winText, setWinText] = useState("CHRONICLE");
+  const [winText, setWinText] = useState("#PIXELCHRONICLE");
   const [showCardModal, setShowCardModal] = useState(false);
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [activeMessageCard, setActiveMessageCard] = useState("");
@@ -71,13 +72,48 @@ export default function Home() {
     // setActiveSlotIcons([slot1.icon, slot2.icon, slot3.icon]);
   };
 
+  const audioPull = (hit?: boolean) => {
+    playAudio({
+      src: "/audio/pull.wav",
+    }).play();
+    playAudio({
+      src: "/audio/spin.mp3",
+      volume: 0.2,
+      destroy: 10,
+    }).play(0.2);
+    playAudio({
+      src: "/audio/spin.mp3",
+      volume: 0.5,
+      destroy: 10,
+    }).play(1.2);
+
+    if (!hit) return;
+
+    playAudio({
+      src: "/audio/hitone.wav",
+      destroy: 15,
+      volume: 0.8,
+    }).play(4);
+    playAudio({
+      src: "/audio/hittwo.wav",
+      destroy: 15,
+      volume: 0.8,
+    }).play(4.8);
+    playAudio({
+      src: "/audio/hitthree.wav",
+      destroy: 15,
+      volume: 0.8,
+    }).play(5.8);
+  };
   const pull = () => {
     // setSlotDisplay([!slotDisplay[0], !slotDisplay[0], !slotDisplay[0]]);
     if (!canPull) return;
+
+    audioPull(true);
     setWhileAnim(true);
     setCanPull(false);
     setSlotDisplay([true, true, true]);
-    const roll = Math.random() * 4;
+    const roll = Math.random() * 3;
     const animDuration = 5500;
     setWinText(" - - - - - - - ");
     if (roll < 1) {
@@ -94,11 +130,20 @@ export default function Home() {
         const reward = slotList[prize];
         reward.onWin();
         setWinText(reward.winText);
-
+        playAudio({
+          src: "/audio/win.wav",
+          destroy: 5,
+          volume: 0.8,
+        }).play(0.4);
         // Message Card
         if (prize !== slotList.length - 1) {
           setTimeout(() => {
             setShowCardModal(true);
+            playAudio({
+              src: "/audio/card.wav",
+              destroy: 5,
+              volume: 0.8,
+            }).play(0.4);
             setActiveMessageCard(reward.card ?? "");
           }, 1000);
         } else {
@@ -125,13 +170,14 @@ export default function Home() {
   };
   const reset = () => {
     if (whileAnim) return;
+    audioPull();
     setWhileAnim(true);
     setCanPull(false);
     const resetDuration = 6000;
     setSlotDisplay([false, false, false]);
 
     setTimeout(() => {
-      setWinText("CHRONICLE");
+      setWinText("#PIXELCHRONICLE");
       setWhileAnim(false);
       setCanPull(true);
     }, resetDuration);

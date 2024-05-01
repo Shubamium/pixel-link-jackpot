@@ -13,7 +13,7 @@
     flex-direction: column;
     transition: all 1000ms ease, width 0ms, height 0ms;
     &.visible {
-      pointer-events: all;
+      pointer-events: unset;
       user-select: unset;
       opacity: 1;
     }
